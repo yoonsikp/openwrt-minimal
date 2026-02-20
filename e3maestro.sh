@@ -62,8 +62,8 @@ uci set network.WWAN.proto='qmi'
 uci set network.WWAN.device='/dev/cdc-wdm0'
 uci set network.WWAN.apn="${APN}"
 uci set network.WWAN.auth='none'
-# For IPv4 only change to 'ipv4'
-uci set network.WWAN.pdptype='ipv4v6'
+# For IPv6 only change to 'ipv6'
+uci set network.WWAN.pdptype='ip'
 uci set network.WWAN.delay='30'
 
 # Use multiple CPUs for receiving packets
