@@ -1,14 +1,19 @@
 #!/bin/sh
-# PACKAGES: luci kmod-usb-net-qmi-wwan kmod-usb-serial-option luci-proto-mbim picocom luci-proto-qmi kmod-rtw88 kmod-rtw88-8723du hostapd-wolfssl
+# PACKAGES: kmod-usb-net-qmi-wwan kmod-usb-serial-option luci-proto-mbim picocom
 
-## Switch to QMI
+# luci kmod-usb-net-qmi-wwan kmod-usb-serial-option luci-proto-mbim picocom luci-proto-qmi kmod-rtw88 kmod-rtw88-8723du kmod-ath9k hostapd-wolfssl iperf3
+# for MESH - wpad-mesh-wolfssl instead of hostapd
+# kmod-ath9k wpad-mesh-wolfssl tcpdump usbutils pciutils ath9k-htc-firmware kmod-ath9k-htc
+
+## Switch to MBIM
 # ssh root@192.168.1.1
 # picocom /dev/ttyUSB3
+# AT+QCFG="usbnet",2
+
+## Switch back to QMI
 # AT+QCFG="usbnet",0
 
 ## Force Roaming
-# ssh root@192.168.1.1
-# picocom /dev/ttyUSB3
 # AT+QCFG="roamservice",2,1
 
 # log potential errors
@@ -56,7 +61,7 @@ do
     uci commit wireless
 done
 
-# Set up the QMI Interface
+# Set up the MBIM Interface
 uci set network.WWAN=interface
 uci set network.WWAN.proto='qmi'
 uci set network.WWAN.device='/dev/cdc-wdm0'
@@ -84,10 +89,11 @@ uci commit firewall
 service firewall restart
 service network restart
 
-# Decrease power usage ('0' to fully shut off screen)
-cat << 'EOF' > /
+# Decrease power usage (change to '0' to shut off screen)
+cat << 'EOF' > /etc/rc.local
 #!/bin/bash
 
 echo 1 > /sys/class/backlight/intel_backlight/brightness
 EOF
 
+exit 0
