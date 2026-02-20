@@ -83,3 +83,11 @@ uci commit firewall
 
 service firewall restart
 service network restart
+
+# Decrease power usage ('0' to fully shut off screen)
+cat << 'EOF' > /
+#!/bin/bash
+
+echo 1 > /sys/class/backlight/intel_backlight/brightness
+EOF
+
