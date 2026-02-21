@@ -1,9 +1,5 @@
 #!/bin/sh
-# PACKAGES: kmod-usb-net-qmi-wwan kmod-usb-serial-option luci-proto-mbim picocom
-
-# luci kmod-usb-net-qmi-wwan kmod-usb-serial-option luci-proto-mbim picocom luci-proto-qmi kmod-rtw88 kmod-rtw88-8723du kmod-ath9k hostapd-wolfssl iperf3
-# for MESH - wpad-mesh-wolfssl instead of hostapd
-# kmod-ath9k wpad-mesh-wolfssl tcpdump usbutils pciutils ath9k-htc-firmware kmod-ath9k-htc
+# PACKAGES: luci kmod-usb-net-qmi-wwan kmod-usb-serial-option luci-proto-mbim picocom luci-proto-qmi kmod-rtw88 kmod-rtw88-8723du hostapd-wolfssl iperf3
 
 ## Switch to MBIM
 # ssh root@192.168.1.1
