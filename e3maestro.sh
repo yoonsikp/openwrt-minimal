@@ -54,7 +54,7 @@ do
     uci commit wireless
 done
 
-# Set up the MBIM Interface
+# Set up the WWAN Interface
 uci set network.WWAN=interface
 uci set network.WWAN.proto='qmi'
 uci set network.WWAN.device='/dev/cdc-wdm0'
