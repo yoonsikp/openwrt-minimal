@@ -1,5 +1,5 @@
 #!/bin/sh
-# PACKAGES: luci kmod-usb-net-qmi-wwan kmod-usb-serial-option luci-proto-mbim picocom luci-proto-qmi kmod-rtw88 kmod-rtw88-8723du hostapd-wolfssl iperf3
+# PACKAGES: luci kmod-usb-net-qmi-wwan kmod-usb-serial-option luci-proto-mbim picocom luci-proto-qmi kmod-rtw88 kmod-rtw88-8723du hostapd-wolfssl 464xlat
 
 ## Switch to QMI
 # ssh root@192.168.1.1
