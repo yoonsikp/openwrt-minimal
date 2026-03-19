@@ -51,6 +51,8 @@ do
     uci set wireless.default_"${RADIO}".encryption="psk2+ccmp"
     uci set wireless.default_"${RADIO}".key="${WIFI_PASS}"
     uci set wireless.default_"${RADIO}".short_preamble='0'
+    uci set wireless.default_"${RADIO}".disabled='0'
+
     uci commit wireless
 done
 
