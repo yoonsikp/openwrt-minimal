@@ -66,6 +66,11 @@ uci set network.WWAN.auth='none'
 uci set network.WWAN.pdptype='ipv4'
 uci set network.WWAN.delay='30'
 
+# Set common MTU for cellular networks
+uci add network device
+uci set network.@device[-1].name='wwan0'
+uci set network.@device[-1].mtu='1420'
+
 # Use multiple CPUs for receiving packets
 uci set network.globals.packet_steering='1'
 
