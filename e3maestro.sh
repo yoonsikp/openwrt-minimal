@@ -89,10 +89,10 @@ uci commit firewall
 service firewall restart
 service network restart
 
-# Decrease power usage (change to backlight to '0' to shut off screen)
 cat << 'EOF' > /etc/rc.local
 #!/bin/bash
 
+# Decrease power usage (change backlight to '0' to shut off screen)
 echo 1 > /sys/class/backlight/intel_backlight/brightness
 echo 0 > /sys/class/graphics/fbcon/cursor_blink
 EOF
