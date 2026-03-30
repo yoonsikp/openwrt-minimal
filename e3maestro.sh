@@ -95,6 +95,7 @@ cat << 'EOF' > /etc/rc.local
 # Decrease power usage (change backlight to '0' to shut off screen)
 echo 1 > /sys/class/backlight/intel_backlight/brightness
 echo 0 > /sys/class/graphics/fbcon/cursor_blink
+# echo off > /sys/class/drm/card0-eDP-1/status
 EOF
 
 exit 0
