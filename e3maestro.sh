@@ -13,7 +13,7 @@
 exec >/tmp/setup.log 2>&1
 
 # WiFi Settings
-SSID="WiFiFreedom😎"
+SSID="WiFiFreedom"
 WIFI_PASS="my_password"
 
 # Modem Settings
