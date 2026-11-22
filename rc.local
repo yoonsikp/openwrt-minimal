@@ -1,0 +1,15 @@
+#!/bin/bash
+
+# Decrease power usage (change backlight to '0' to shut off screen)
+echo 1 > /sys/class/backlight/intel_backlight/brightness
+echo 0 > /sys/class/graphics/fbcon/cursor_blink
+
+if grep -q enabled /sys/class/drm/card0-HDMI-A-1/enabled; then
+    echo off > /sys/class/drm/card0-eDP-1/status
+fi
+
+#chmod 666 /dev/dri/card0
+chmod 666 /dev/dri/renderD128
+chmod 666 /dev/net/tun
+
+lxc-start jellyfin
