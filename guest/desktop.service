@@ -1,0 +1,14 @@
+# /etc/systemd/system/desktop.service         
+
+[Unit]
+Description=Desktop Services
+Requires=seatd.service
+After=seatd.service
+
+[Service]
+Type=simple
+ExecStart=/root/sway.sh
+Restart=no
+
+[Install]
+WantedBy=multi-user.target
